@@ -8,9 +8,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-String? _selectedCity;
-
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   final List<String> cities = [
     'Kathmandu',
     'Biratnagar',
@@ -22,6 +20,21 @@ class _HomeScreenState extends State<HomeScreen> {
     'Itahari',
     'Birgunj'
   ];
+  String? _selectedCity;
+
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: 2);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(
             'assets/logo.png',
-            height: 80,
-            width: 80,
+            height: 100,
+            width: 100,
           ),
         ),
         title: DropdownButtonFormField<String>(
@@ -84,6 +97,38 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      body: Column(
+        children: [
+          TabBar(
+            tabs: const [
+              Tab(text: 'Now Showing'),
+              Tab(text: 'Coming Soon'),
+            ],
+            controller: _tabController,
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                //now showing ko items
+                Container(
+                  child: const Center(
+                    child: Text('Now Showing Content'),
+                  ),
+                ),
+               //coming soon ko items
+                Container(
+                  child: const Center(
+                    child: Text('Coming Soon Content'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
+
+
