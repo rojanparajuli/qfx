@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qfx/const/colors.dart';
+import 'package:qfx/screen/appbar/search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -89,7 +90,9 @@ class _HomeScreenState extends State<HomeScreen>
               Icons.search,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchScreen()));
+            },
           ),
           IconButton(
             icon: const Icon(
