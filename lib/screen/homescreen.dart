@@ -18,41 +18,39 @@ class HomeScreen extends StatefulWidget {
 }
 
 final List<String> cities = [
-    'Kathmandu',
-    'Biratnagar',
-    'Butwal',
-    'Nepalgunj',
-    'Narayangarh',
-    'Birtamod',
-    'Damauli',
-    'Itahari',
-    'Birgunj'
-  ];
-  TextEditingController cityController = TextEditingController();
+  'Kathmandu',
+  'Biratnagar',
+  'Butwal',
+  'Nepalgunj',
+  'Narayangarh',
+  'Birtamod',
+  'Damauli',
+  'Itahari',
+  'Birgunj'
+];
+TextEditingController cityController = TextEditingController();
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   List<String> _selectedCity = [];
 
-      void showMultiSelect(BuildContext context) async {
-  await showDialog(
-    context: context,
-    builder: (ctx) {
-      return  MultiSelectChipDisplay(
-        items: _items,
-        // initialValue: _selectedCity,
-        // onConfirm: (values) {
-        //   print(values);
-        // },
-      );
-    },
-  );
-}
-  
+  void showMultiSelect(BuildContext context) async {
+    await showDialog(
+      context: context,
+      builder: (ctx) {
+        return MultiSelectChipDisplay(
+          items: _items,
+          // initialValue: _selectedCity,
+          // onConfirm: (values) {
+          //   print(values);
+          // },
+        );
+      },
+    );
+  }
 
-  final _items = cities
-      .map((city) => MultiSelectItem<String>(city, city))
-      .toList();
+  final _items =
+      cities.map((city) => MultiSelectItem<String>(city, city)).toList();
 
   late TabController _tabController;
 
@@ -75,19 +73,19 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: const Drawer(child: Column(
-        children: [
-         
-        ],
-      ),),
+      endDrawer: const Drawer(
+        child: Column(
+          children: [],
+        ),
+      ),
       appBar: AppBar(
         toolbarHeight: 100,
         leadingWidth: 100,
         backgroundColor: CustomColors.scaffoldDarkBack,
         leading: Image.asset(
           'assets/logo.png',
-          height: 100, 
-          width: 100, 
+          height: 100,
+          width: 100,
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,57 +97,71 @@ class _HomeScreenState extends State<HomeScreen>
                 controller: cityController,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                  hintText: 'Locations',
-                  hintStyle: const TextStyle(color: Colors.white),
-                  fillColor: const Color.fromARGB(255, 22, 22, 22),
-                  filled: true,
-                  prefixIcon: const Icon(Icons.location_on, color: Colors.white,),
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      showDialog(context: context, builder: (context) {
-                    return AlertDialog(
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(
-                            height: 160,
-                            child: MultiSelectChipDisplay<String>(
-                              chipColor: Colors.grey[50],
-                              textStyle: const TextStyle(color: Colors.black),
-                              items: _items,
-                              onTap: (values) {
-                                print(values);
-                                setState(() {
-                                  cityController.text = values;
-                                });
-                                Future.delayed(const Duration(milliseconds: 200),() {
-                                  Navigator.pop(context);
-                                });
-              
-              
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },);
-                    },
-                    child: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.white,)),
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none)
-                ),
+                    hintText: 'Locations',
+                    hintStyle: const TextStyle(color: Colors.white),
+                    fillColor: const Color.fromARGB(255, 22, 22, 22),
+                    filled: true,
+                    prefixIcon: const Icon(
+                      Icons.location_on,
+                      color: Colors.white,
+                    ),
+                    suffixIcon: GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SizedBox(
+                                      height: 160,
+                                      child: MultiSelectChipDisplay<String>(
+                                        chipColor: Colors.grey[50],
+                                        textStyle: const TextStyle(
+                                            color: Colors.black),
+                                        items: _items,
+                                        onTap: (values) {
+                                          print(values);
+                                          setState(() {
+                                            cityController.text = values;
+                                          });
+                                          Future.delayed(
+                                              const Duration(milliseconds: 200),
+                                              () {
+                                            Navigator.pop(context);
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                        },
+                        child: const Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          color: Colors.white,
+                        )),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none)),
               ),
             ),
             IconButton(
-            icon: const Icon(
-              Icons.search,
-              color: Colors.white,
-              size: 30,
+              icon: const Icon(
+                Icons.search,
+                color: Colors.white,
+                size: 30,
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SearchScreen()));
+              },
             ),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchScreen()));
-            },
-          ),
           ],
         ),
         // DropdownButtonFormField<String>(
@@ -203,7 +215,6 @@ class _HomeScreenState extends State<HomeScreen>
         //     },
         //   ),
         // ],
-        
       ),
       body: RefreshIndicator(
         onRefresh: _refresh,
@@ -211,10 +222,15 @@ class _HomeScreenState extends State<HomeScreen>
           children: [
             TabBar(
               indicatorColor: Colors.black,
-              labelStyle: const TextStyle(color: Colors.black, fontWeight:FontWeight.bold),
+              labelStyle: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.bold),
               tabs: const [
-                Tab(text: 'Now Showing',),
-                Tab(text: 'Coming Soon', ),
+                Tab(
+                  text: 'Now Showing',
+                ),
+                Tab(
+                  text: 'Coming Soon',
+                ),
               ],
               controller: _tabController,
             ),
@@ -233,7 +249,30 @@ class _HomeScreenState extends State<HomeScreen>
                 ],
               ),
             ),
-          ],
+            Column(
+              children: <Widget>[
+                const BottomAppBar(
+              color:CustomColors.scaffoldDarkBack,
+            )
+              ],
+            )
+          ], 
+        ),
+      ),
+      bottomNavigationBar: DefaultTabController(
+        length: 3,
+        child: Material(
+          color: Colors.amber,
+          child: TabBar(
+            
+            // overlayColor: MaterialStateColor.resolveWith((states) => Colors.blue), hover color
+            labelStyle: TextStyle(color: Colors.black),
+            tabs: [
+              Tab(icon: Icon(Icons.home),),
+              Tab(icon: Icon(Icons.home),),
+              Tab(icon: Icon(Icons.home),),
+            ],
+           ),
         ),
       ),
     );
