@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -73,6 +75,11 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: const Drawer(child: Column(
+        children: [
+         
+        ],
+      ),),
       appBar: AppBar(
         toolbarHeight: 100,
         leadingWidth: 100,
@@ -82,50 +89,68 @@ class _HomeScreenState extends State<HomeScreen>
           height: 100, 
           width: 100, 
         ),
-        title: TextField(
-          readOnly: true,
-          controller: cityController,
-          style: const TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-            hintText: 'Locations',
-            hintStyle: const TextStyle(color: Colors.white),
-            fillColor: const Color.fromARGB(255, 22, 22, 22),
-            filled: true,
-            prefixIcon: const Icon(Icons.location_on, color: Colors.white,),
-            suffixIcon: GestureDetector(
-              onTap: () {
-                showDialog(context: context, builder: (context) {
-              return AlertDialog(
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      height: 160,
-                      child: MultiSelectChipDisplay<String>(
-                        chipColor: Colors.grey[50],
-                        textStyle: TextStyle(color: Colors.black),
-                        items: _items,
-                        onTap: (values) {
-                          print(values);
-                          setState(() {
-                            cityController.text = values;
-                          });
-                          Future.delayed(const Duration(milliseconds: 200),() {
-                            Navigator.pop(context);
-                          });
-
-
-                        },
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: TextField(
+                readOnly: true,
+                controller: cityController,
+                style: const TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: 'Locations',
+                  hintStyle: const TextStyle(color: Colors.white),
+                  fillColor: const Color.fromARGB(255, 22, 22, 22),
+                  filled: true,
+                  prefixIcon: const Icon(Icons.location_on, color: Colors.white,),
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      showDialog(context: context, builder: (context) {
+                    return AlertDialog(
+                      content: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(
+                            height: 160,
+                            child: MultiSelectChipDisplay<String>(
+                              chipColor: Colors.grey[50],
+                              textStyle: const TextStyle(color: Colors.black),
+                              items: _items,
+                              onTap: (values) {
+                                print(values);
+                                setState(() {
+                                  cityController.text = values;
+                                });
+                                Future.delayed(const Duration(milliseconds: 200),() {
+                                  Navigator.pop(context);
+                                });
+              
+              
+                              },
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                    );
+                  },);
+                    },
+                    child: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.white,)),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none)
                 ),
-              );
-            },);
-              },
-              child: const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.white,)),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide.none)
+              ),
+            ),
+            IconButton(
+            icon: const Icon(
+              Icons.search,
+              color: Colors.white,
+              size: 30,
+            ),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchScreen()));
+            },
           ),
+          ],
         ),
         // DropdownButtonFormField<String>(
         //   decoration: InputDecoration(
@@ -158,24 +183,27 @@ class _HomeScreenState extends State<HomeScreen>
         //         ));
         //   }).toList(),
         // ),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchScreen()));
-            },
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: const Icon(
+        //       Icons.search,
+        //       color: Colors.white,
+        //     ),
+        //     onPressed: () {
+        //       Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchScreen()));
+        //     },
+        //   ),
+        //   IconButton(
+        //     icon: const Icon(
+        //       Icons.menu,
+        //       color: Colors.white,
+        //     ),
+        //     onPressed: () {
+        //       Scaffold.of(context).openEndDrawer();
+        //     },
+        //   ),
+        // ],
+        
       ),
       body: RefreshIndicator(
         onRefresh: _refresh,
