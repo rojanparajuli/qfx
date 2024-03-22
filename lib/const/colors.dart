@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
 class CustomColors{
-    static Color scaffoldDarkBack = const Color(0xFF222222);
+    static const scaffoldDarkBack =  Color(0xFF222222);
 
 }

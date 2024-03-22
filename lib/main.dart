@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false
       ),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
