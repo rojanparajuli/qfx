@@ -8,7 +8,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   final List<String> cities = [
     'Kathmandu',
     'Biratnagar',
@@ -36,18 +37,20 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     super.dispose();
   }
 
+  Future<void> _refresh() async {
+    // Implement your refresh logic here
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 100,
         backgroundColor: CustomColors.scaffoldDarkBack,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            'assets/logo.png',
-            height: 100,
-            width: 100,
-          ),
+        leading: Image.asset(
+          'assets/logo.png',
+          height: 100, 
+          width: 100, 
         ),
         title: DropdownButtonFormField<String>(
           decoration: InputDecoration(
@@ -97,38 +100,35 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ),
         ],
       ),
-      body: Column(
-        children: [
-          TabBar(
-            tabs: const [
-              Tab(text: 'Now Showing'),
-              Tab(text: 'Coming Soon'),
-            ],
-            controller: _tabController,
-          ),
-          Expanded(
-            child: TabBarView(
+      body: RefreshIndicator(
+        onRefresh: _refresh,
+        child: Column(
+          children: [
+            TabBar(
+              tabs: const [
+                Tab(text: 'Now Showing'),
+                Tab(text: 'Coming Soon'),
+              ],
               controller: _tabController,
-              children: [
-                //now showing ko items
-                Container(
-                  child: const Center(
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: const [
+                  // Now showing ko items
+                  Center(
                     child: Text('Now Showing Content'),
                   ),
-                ),
-               //coming soon ko items
-                Container(
-                  child: const Center(
+                  // Coming soon ko items
+                  Center(
                     child: Text('Coming Soon Content'),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
-
-
