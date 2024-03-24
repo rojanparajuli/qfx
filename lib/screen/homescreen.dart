@@ -200,24 +200,26 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                         ),
                         const SizedBox(height: 20),
+                        
                         Row(
+                          
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Container(
-                              width: 100,
-                              height: 100,
+                              width: 200,
+                              height: 300,
                               color: Colors.red,
                             ),
                             Container(
-                              width: 100,
-                              height: 100,
+                              width: 200,
+                              height: 300,
                               color: Colors.green,
                             ),
-                            Container(
-                              width: 100,
-                              height: 100,
-                              color: Colors.blue,
-                            ),
+                            // Container(
+                            //   width: 100,
+                            //   height: 100,
+                            //   color: Colors.blue,
+                            // ),
                           ],
                         ),
                         const SizedBox(height: 20),
@@ -225,13 +227,13 @@ class _HomeScreenState extends State<HomeScreen>
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Container(
-                              width: 100,
-                              height: 100,
+                              width: 200,
+                              height: 300,
                               color: Colors.orange,
                             ),
                             Container(
-                              width: 100,
-                              height: 100,
+                              width: 200,
+                              height: 300,
                               color: Colors.purple,
                             ),
                           ],
