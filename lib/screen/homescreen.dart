@@ -249,9 +249,9 @@ class _HomeScreenState extends State<HomeScreen>
                 ],
               ),
             ),
-            Column(
+            const Column(
               children: <Widget>[
-                const BottomAppBar(
+                BottomAppBar(
               color:CustomColors.scaffoldDarkBack,
             )
               ],
@@ -259,18 +259,27 @@ class _HomeScreenState extends State<HomeScreen>
           ], 
         ),
       ),
-      bottomNavigationBar: DefaultTabController(
+      bottomNavigationBar: const DefaultTabController(
         length: 3,
         child: Material(
-          color: Colors.amber,
+          color: CustomColors.scaffoldDarkBack,
           child: TabBar(
-            
             // overlayColor: MaterialStateColor.resolveWith((states) => Colors.blue), hover color
-            labelStyle: TextStyle(color: Colors.black),
+            labelStyle: TextStyle(color: Colors.white),
             tabs: [
-              Tab(icon: Icon(Icons.home),),
-              Tab(icon: Icon(Icons.home),),
-              Tab(icon: Icon(Icons.home),),
+              Tab(icon: Icon(Icons.movie),
+              child: Text('Movies'),
+              ),
+
+
+
+
+              Tab(icon: Icon(Icons.loyalty_rounded),
+              child: Text('My Loyalty'),
+              ),
+              Tab(icon: Icon(Icons.person),
+              child: Text('Profile'),
+              ),
             ],
            ),
         ),
