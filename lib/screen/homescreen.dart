@@ -1,11 +1,11 @@
-import 'dart:ui';
+// import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
-import 'package:multi_select_flutter/chip_field/multi_select_chip_field.dart';
-import 'package:multi_select_flutter/dialog/mult_select_dialog.dart';
+// import 'package:multi_select_flutter/chip_field/multi_select_chip_field.dart';
+// import 'package:multi_select_flutter/dialog/mult_select_dialog.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:qfx/const/colors.dart';
 import 'package:qfx/screen/appbar/search_screen.dart';
@@ -32,7 +32,6 @@ TextEditingController cityController = TextEditingController();
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  List<String> _selectedCity = [];
 
   void showMultiSelect(BuildContext context) async {
     await showDialog(
@@ -164,57 +163,6 @@ class _HomeScreenState extends State<HomeScreen>
             ),
           ],
         ),
-        // DropdownButtonFormField<String>(
-        //   decoration: InputDecoration(
-        //     contentPadding: const EdgeInsets.symmetric(horizontal: 15),
-        //     border: OutlineInputBorder(
-        //       borderRadius: BorderRadius.circular(15),
-        //     ),
-        //     filled: true,
-        //     fillColor: Colors.black,
-        //     hintText: 'Select Location',
-        //     prefixIcon: const Icon(
-        //       Icons.location_on,
-        //       color: Colors.white,
-        //     ),
-        //   ),
-        //   value: _selectedCity,
-        //   onChanged: (String? newValue) {
-        //     setState(() {
-        //       _selectedCity = newValue;
-        //     });
-        //   },
-        //   items: cities.map<DropdownMenuItem<String>>((String value) {
-        //     return DropdownMenuItem<String>(
-        //         value: value,
-        //         child: Text(
-        //           value,
-        //           style: TextStyle(
-        //             color: _selectedCity == value ? Colors.white : Colors.black,
-        //           ),
-        //         ));
-        //   }).toList(),
-        // ),
-        // actions: [
-        //   IconButton(
-        //     icon: const Icon(
-        //       Icons.search,
-        //       color: Colors.white,
-        //     ),
-        //     onPressed: () {
-        //       Navigator.push(context, MaterialPageRoute(builder: (context)=> const SearchScreen()));
-        //     },
-        //   ),
-        //   IconButton(
-        //     icon: const Icon(
-        //       Icons.menu,
-        //       color: Colors.white,
-        //     ),
-        //     onPressed: () {
-        //       Scaffold.of(context).openEndDrawer();
-        //     },
-        //   ),
-        // ],
       ),
       body: RefreshIndicator(
         onRefresh: _refresh,
@@ -237,14 +185,96 @@ class _HomeScreenState extends State<HomeScreen>
             Expanded(
               child: TabBarView(
                 controller: _tabController,
-                children: const [
-                  // Now showing ko items
+                children: [
+                  // Now Showing ko items
                   Center(
-                    child: Text('Now Showing Content'),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Now Showing >',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.red,
+                            ),
+                            Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.green,
+                            ),
+                            Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.blue,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.orange,
+                            ),
+                            Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.purple,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   // Coming soon ko items
                   Center(
-                    child: Text('Coming Soon Content'),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Coming Soon Content',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.yellow,
+                            ),
+                            Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.cyan,
+                            ),
+                            Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.deepOrange,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -252,38 +282,36 @@ class _HomeScreenState extends State<HomeScreen>
             const Column(
               children: <Widget>[
                 BottomAppBar(
-              color:CustomColors.scaffoldDarkBack,
-            )
+                  color: CustomColors.scaffoldDarkBack,
+                )
               ],
             )
-          ], 
+          ],
         ),
       ),
-      bottomNavigationBar: const DefaultTabController(
-        length: 3,
-        child: Material(
-          color: CustomColors.scaffoldDarkBack,
-          child: TabBar(
-            // overlayColor: MaterialStateColor.resolveWith((states) => Colors.blue), hover color
-            labelStyle: TextStyle(color: Colors.white),
-            tabs: [
-              Tab(icon: Icon(Icons.movie),
-              child: Text('Movies'),
-              ),
-
-
-
-
-              Tab(icon: Icon(Icons.loyalty_rounded),
-              child: Text('My Loyalty'),
-              ),
-              Tab(icon: Icon(Icons.person),
-              child: Text('Profile'),
-              ),
-            ],
-           ),
+    bottomNavigationBar: const DefaultTabController(
+  length: 3,
+  child: Material(
+    color: CustomColors.scaffoldDarkBack,
+    child: TabBar(
+      labelStyle: TextStyle(color: Colors.white),
+      tabs: [
+        Tab(
+          icon: Icon(Icons.movie),
+          text: 'Movies',
         ),
-      ),
+        Tab(
+          icon: Icon(Icons.loyalty_rounded),
+          text: 'My Loyalty',
+        ),
+        Tab(
+          icon: Icon(Icons.person),
+          text: 'Profile',
+        ),
+      ],
+    ),
+  ),
+)
     );
   }
-}
+    }
