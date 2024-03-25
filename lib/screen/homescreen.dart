@@ -7,6 +7,7 @@ import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:qfx/const/colors.dart';
 import 'package:qfx/screen/appbar/search_screen.dart';
+import 'package:qfx/screen/bottom_tab_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 2);
+    _tabController = TabController(vsync: this, length: 3);
     _items = cities
         .map((city) => MultiSelectItem<String>(city, city))
         .toList();
@@ -148,170 +149,35 @@ class _HomeScreenState extends State<HomeScreen>
           ],
         ),
       ),
-      body: RefreshIndicator(
-        onRefresh: _refresh,
-        child: Column(
-          children: [
-            TabBar(
-              indicatorColor: Colors.black,
-              labelStyle: const TextStyle(
-                  color: Colors.black, fontWeight: FontWeight.bold),
-              tabs: const [
-                Tab(
-                  text: 'Now Showing',
-                ),
-                Tab(
-                  text: 'Coming Soon',
-                ),
-              ],
-              controller: _tabController,
-            ),
-            const SizedBox(height: 5,),
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  // Now Showing ko items
-                  SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Container(
-                           alignment: const FractionalOffset(0.1, 0.4),
-                          child: const Text(
-                            'Now Showing >',
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              width: 200,
-                              height: 240,
-                              color: Colors.black,
-                            ),
-                            Container(
-                              width: 200,
-                              height: 240,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              width: 200,
-                              height: 240,
-                              color: Colors.black,
-                            ),
-                            Container(
-                              width: 200,
-                              height: 240,
-                              color: Colors.black,
-                            ),
-                            
-                          ],
-                        ),
-                        
-                        const SizedBox(height: 20,),
-                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                              Container(
-                              width: 200,
-                              height: 240,
-                              color: Colors.black,
-                            ),
-                            Container(
-                              width: 200,
-                              height: 240,
-                              color: Colors.black,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  // Coming soon ko items
-                  Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        // const Text(
-                        //   'Coming Soon Content',
-                        //   style: TextStyle(
-                        //     color: Colors.black,
-                        //     fontSize: 5,
-                        //     fontWeight: FontWeight.bold,
-                        //   ),
-                        // ),
-                        const SizedBox(height: 20),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              width: 200,
-                              height: 240,
-                              color: Colors.yellow,
-                            ),
-                            Container(
-                              width: 200,
-                              height: 240,
-                              color: Colors.cyan,
-                            ),
-                            // Container(
-                            //   width: 100,
-                            //   height: 100,
-                            //   color: Colors.deepOrange,
-                            // ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const Column(
-              children: <Widget>[
-                BottomAppBar(
-                  color: CustomColors.scaffoldDarkBack,
-                )
-              ],
-            )
-          ],
-        ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          MovieTab(),
+          Container(),
+          Container(),
+
+        ],
       ),
-      bottomNavigationBar: const DefaultTabController(
-        length: 3,
-        child: Material(
-          color: CustomColors.scaffoldDarkBack,
-          child: TabBar(
-            labelStyle: TextStyle(color: Colors.white),
-            tabs: [
-              Tab(
-                icon: Icon(Icons.movie),
-                text: 'Movies',
-              ),
-              Tab(
-                icon: Icon(Icons.loyalty_rounded),
-                text: 'My Loyalty',
-              ),
-              Tab(
-                icon: Icon(Icons.person),
-                text: 'Profile',
-                
-              ),
-            ],
-          ),
+      bottomNavigationBar: Material(
+        color: CustomColors.scaffoldDarkBack,
+        child: TabBar(
+          controller: _tabController,
+          labelStyle: TextStyle(color: Colors.white),
+          tabs: [
+            Tab(
+              icon: Icon(Icons.movie),
+              text: 'Movies',
+            ),
+            Tab(
+              icon: Icon(Icons.loyalty_rounded),
+              text: 'My Loyalty',
+            ),
+            Tab(
+              icon: Icon(Icons.person),
+              text: 'Profile',
+              
+            ),
+          ],
         ),
       ),
     );
