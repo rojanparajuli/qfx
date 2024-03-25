@@ -242,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen>
                   // Coming soon ko items
                   Center(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         // const Text(
                         //   'Coming Soon Content',
@@ -254,16 +254,17 @@ class _HomeScreenState extends State<HomeScreen>
                         // ),
                         const SizedBox(height: 20),
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Container(
-                              width: 100,
-                              height: 100,
+                              width: 200,
+                              height: 240,
                               color: Colors.yellow,
                             ),
                             Container(
-                              width: 100,
-                              height: 100,
+                              width: 200,
+                              height: 240,
                               color: Colors.cyan,
                             ),
                             // Container(
