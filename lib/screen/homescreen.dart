@@ -1,11 +1,9 @@
-// import 'dart:ui';
-
 // import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
-// import 'package:multi_select_flutter/chip_field/multi_select_chip_field.dart';
-// import 'package:multi_select_flutter/dialog/mult_select_dialog.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:qfx/const/colors.dart';
 import 'package:qfx/screen/appbar/search_screen.dart';
@@ -17,46 +15,30 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-final List<String> cities = [
-  'Kathmandu',
-  'Biratnagar',
-  'Butwal',
-  'Nepalgunj',
-  'Narayangarh',
-  'Birtamod',
-  'Damauli',
-  'Itahari',
-  'Birgunj'
-];
-TextEditingController cityController = TextEditingController();
-
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-
-  void showMultiSelect(BuildContext context) async {
-    await showDialog(
-      context: context,
-      builder: (ctx) {
-        return MultiSelectChipDisplay(
-          items: _items,
-          // initialValue: _selectedCity,
-          // onConfirm: (values) {
-          //   print(values);
-          // },
-        );
-      },
-    );
-  }
-
-  final _items =
-      cities.map((city) => MultiSelectItem<String>(city, city)).toList();
-
   late TabController _tabController;
+  final List<String> cities = [
+    'Kathmandu',
+    'Biratnagar',
+    'Butwal',
+    'Nepalgunj',
+    'Narayangarh',
+    'Birtamod',
+    'Damauli',
+    'Itahari',
+    'Birgunj'
+  ];
+  TextEditingController cityController = TextEditingController();
+  late List<MultiSelectItem<String>> _items;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 2);
+    _items = cities
+        .map((city) => MultiSelectItem<String>(city, city))
+        .toList();
   }
 
   @override
@@ -74,7 +56,9 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       endDrawer: const Drawer(
         child: Column(
-          children: [],
+          children: [
+
+          ],
         ),
       ),
       appBar: AppBar(
@@ -182,44 +166,40 @@ class _HomeScreenState extends State<HomeScreen>
               ],
               controller: _tabController,
             ),
+            const SizedBox(height: 5,),
             Expanded(
               child: TabBarView(
                 controller: _tabController,
                 children: [
                   // Now Showing ko items
-                  Center(
+                  SingleChildScrollView(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
-                          'Now Showing >',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                        Container(
+                           alignment: const FractionalOffset(0.1, 0.4),
+                          child: const Text(
+                            'Now Showing >',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         const SizedBox(height: 20),
-                        
                         Row(
-                          
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Container(
                               width: 200,
-                              height: 300,
-                              color: Colors.red,
+                              height: 240,
+                              color: Colors.black,
                             ),
                             Container(
                               width: 200,
-                              height: 300,
-                              color: Colors.green,
+                              height: 240,
+                              color: Colors.black,
                             ),
-                            // Container(
-                            //   width: 100,
-                            //   height: 100,
-                            //   color: Colors.blue,
-                            // ),
                           ],
                         ),
                         const SizedBox(height: 20),
@@ -228,16 +208,34 @@ class _HomeScreenState extends State<HomeScreen>
                           children: [
                             Container(
                               width: 200,
-                              height: 300,
-                              color: Colors.orange,
+                              height: 240,
+                              color: Colors.black,
                             ),
                             Container(
                               width: 200,
-                              height: 300,
-                              color: Colors.purple,
+                              height: 240,
+                              color: Colors.black,
                             ),
+                            
                           ],
                         ),
+                        
+                        const SizedBox(height: 20,),
+                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                              Container(
+                              width: 200,
+                              height: 240,
+                              color: Colors.black,
+                            ),
+                            Container(
+                              width: 200,
+                              height: 240,
+                              color: Colors.black,
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -246,14 +244,14 @@ class _HomeScreenState extends State<HomeScreen>
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
-                          'Coming Soon Content',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        // const Text(
+                        //   'Coming Soon Content',
+                        //   style: TextStyle(
+                        //     color: Colors.black,
+                        //     fontSize: 5,
+                        //     fontWeight: FontWeight.bold,
+                        //   ),
+                        // ),
                         const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -268,11 +266,11 @@ class _HomeScreenState extends State<HomeScreen>
                               height: 100,
                               color: Colors.cyan,
                             ),
-                            Container(
-                              width: 100,
-                              height: 100,
-                              color: Colors.deepOrange,
-                            ),
+                            // Container(
+                            //   width: 100,
+                            //   height: 100,
+                            //   color: Colors.deepOrange,
+                            // ),
                           ],
                         ),
                       ],
@@ -291,29 +289,30 @@ class _HomeScreenState extends State<HomeScreen>
           ],
         ),
       ),
-    bottomNavigationBar: const DefaultTabController(
-  length: 3,
-  child: Material(
-    color: CustomColors.scaffoldDarkBack,
-    child: TabBar(
-      labelStyle: TextStyle(color: Colors.white),
-      tabs: [
-        Tab(
-          icon: Icon(Icons.movie),
-          text: 'Movies',
+      bottomNavigationBar: const DefaultTabController(
+        length: 3,
+        child: Material(
+          color: CustomColors.scaffoldDarkBack,
+          child: TabBar(
+            labelStyle: TextStyle(color: Colors.white),
+            tabs: [
+              Tab(
+                icon: Icon(Icons.movie),
+                text: 'Movies',
+              ),
+              Tab(
+                icon: Icon(Icons.loyalty_rounded),
+                text: 'My Loyalty',
+              ),
+              Tab(
+                icon: Icon(Icons.person),
+                text: 'Profile',
+                
+              ),
+            ],
+          ),
         ),
-        Tab(
-          icon: Icon(Icons.loyalty_rounded),
-          text: 'My Loyalty',
-        ),
-        Tab(
-          icon: Icon(Icons.person),
-          text: 'Profile',
-        ),
-      ],
-    ),
-  ),
-)
+      ),
     );
   }
-    }
+}
