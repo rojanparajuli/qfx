@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: TabBarView(
         controller: _tabController,
         children: [
-          MovieTab(),
+          const MovieTab(),
           Container(),
           Container(),
 
@@ -162,8 +162,8 @@ class _HomeScreenState extends State<HomeScreen>
         color: CustomColors.scaffoldDarkBack,
         child: TabBar(
           controller: _tabController,
-          labelStyle: TextStyle(color: Colors.white),
-          tabs: [
+          labelStyle: const TextStyle(color: Colors.white),
+          tabs: const [
             Tab(
               icon: Icon(Icons.movie),
               text: 'Movies',

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:qfx/screen/homescreen.dart';
+import 'package:get/get.dart';
+// import 'package:qfx/screen/homescreen.dart';
+import 'package:qfx/screen/splash/splash_screen.dart';
 
 
 void main(){
@@ -11,12 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: false
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
