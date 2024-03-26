@@ -1,7 +1,8 @@
 // import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+// import 'package:flutter/widgets.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
@@ -48,9 +49,9 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
 
-  Future<void> _refresh() async {
+  // Future<void> _refresh() async {
     // Implement your refresh logic here
-  }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -140,10 +141,11 @@ class _HomeScreenState extends State<HomeScreen>
                 size: 30,
               ),
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SearchScreen()));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const SearchScreen()));
+                Get.to(const SearchScreen());
               },
             ),
           ],
