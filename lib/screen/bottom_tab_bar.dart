@@ -12,7 +12,6 @@ late TabController tabController;
 class _MovieTabState extends State<MovieTab> with SingleTickerProviderStateMixin {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     tabController = TabController(length: 2, vsync: this);
 
@@ -157,6 +156,8 @@ class _MovieTabState extends State<MovieTab> with SingleTickerProviderStateMixin
                 ],
               ),
             ),
+
+            const SizedBox(height: 10,),
             const Column(
               children: <Widget>[
                 BottomAppBar(
