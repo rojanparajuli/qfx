@@ -69,6 +69,79 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       fontSize: 20),
                 ),
               ),
+            ),
+
+            const SizedBox(
+              height: 550,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                const Text(
+                  'Connect With US',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                     SizedBox(width: 15,),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      padding: const EdgeInsets.all(5),
+                      decoration: const BoxDecoration(
+                          color: CustomColors.scaffoldDarkBack,
+                          shape: BoxShape.circle),
+                      child: Image.asset('assets/facebook.png'),
+                    ),
+                    SizedBox(width: 15,),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      padding: const EdgeInsets.all(5),
+                      decoration: const BoxDecoration(
+                          color: CustomColors.scaffoldDarkBack,
+                          shape: BoxShape.circle),
+                      child: Image.asset('assets/insta.png'),
+                    ),
+                     SizedBox(width: 15,),
+                     Container(
+                      height: 40,
+                      width: 40,
+                      padding: const EdgeInsets.all(5),
+                      decoration: const BoxDecoration(
+                          color: CustomColors.scaffoldDarkBack,
+                          shape: BoxShape.circle),
+                      child: Image.asset('assets/x.png'),
+                    ),
+                     SizedBox(width: 15,),
+                     Container(
+                      height: 40,
+                      width: 40,
+                      padding: const EdgeInsets.all(5),
+                      decoration: const BoxDecoration(
+                          color: CustomColors.scaffoldDarkBack,
+                          shape: BoxShape.circle),
+                      child: Image.asset('assets/tiktok.png'),
+                    ),
+                     SizedBox(width: 15,),
+                     Container(
+                      height: 40,
+                      width: 40,
+                      padding: const EdgeInsets.all(5),
+                      decoration: const BoxDecoration(
+                          color: CustomColors.scaffoldDarkBack,
+                          shape: BoxShape.circle),
+                      child: Image.asset('assets/whatsapp.png'),
+                    ),
+                    
+                  ],
+                )
+              ],
             )
           ],
         ),

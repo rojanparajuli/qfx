@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qfx/const/colors.dart';
 
 class TermsAndConditionsScreen extends StatefulWidget {
   const TermsAndConditionsScreen({super.key});
@@ -12,6 +13,7 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: CustomColors.scaffoldDarkBack,
         title: const Text('Terms & Conditions'),
       ),
       body: SingleChildScrollView(
