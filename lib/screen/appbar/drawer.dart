@@ -53,26 +53,254 @@ class _DrawerScreenState extends State<DrawerScreen> {
             const SizedBox(
               height: 10,
             ),
-            ListTile(
-              leading: TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 20),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'SIGN IN /SIGN UP',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
                 ),
-                onPressed: () {
-                  Get.to(const TermsAndConditionsScreen());
-                },
-                child: const Text(
-                  'Terms and conditions',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
+                const Divider(),
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'CUSTOMER SERVICE',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
                 ),
-              ),
+                // const Divider(),
+                // ListTile(
+                //   leading: TextButton(
+                //     style: TextButton.styleFrom(
+                //       textStyle: const TextStyle(fontSize: 18),
+                //     ),
+                //     onPressed: () {
+                //       // Get.to(const TermsAndConditionsScreen());
+                //     },
+                //     child: const Text(
+                //       'CUSTOMER SERVICE',
+                //       style: TextStyle(
+                //           color: Colors.black,
+                //           fontWeight: FontWeight.bold,
+                //           fontSize: 18),
+                //     ),
+                //   ),
+                // ),
+                // ListTile(
+                //   leading: TextButton(
+                //     style: TextButton.styleFrom(
+                //       textStyle: const TextStyle(fontSize: 18),
+                //     ),
+                //     onPressed: () {
+                //       // Get.to(const TermsAndConditionsScreen());
+                //     },
+                //     child: const Text(
+                //       'CUSTOMER SERVICE',
+                //       style: TextStyle(
+                //           color: Colors.black,
+                //           fontWeight: FontWeight.bold,
+                //           fontSize: 18),
+                //     ),
+                //   ),
+                // ),
+                const Divider(),
+
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'CLUB QFX',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+                const Divider(),
+
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'OFFERS & PROMOTIONS',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+                const Divider(),
+
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'ADVERTISE WITH US',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+                const Divider(),
+
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'BECOME QFX FRANCHISEE',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+                const Divider(),
+
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'CAREERS',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+                const Divider(),
+
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'ABOUT US',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+                const Divider(),
+
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'FAQs',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+                const Divider(),
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      'TERMS AND CONDITIONS',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+                const Divider(),
+                ListTile(
+                  leading: TextButton(
+                    style: TextButton.styleFrom(
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      // Get.to(const TermsAndConditionsScreen());
+                    },
+                    child: const Text(
+                      ' PRIVACY POLICY ',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                  ),
+                ),
+                // Divider(),
+              ],
             ),
 
             const SizedBox(
-              height: 550,
+              height: 30,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -84,11 +312,15 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),
-                SizedBox(height: 20,),
+                const SizedBox(
+                  height: 20,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                     SizedBox(width: 15,),
+                    const SizedBox(
+                      width: 15,
+                    ),
                     Container(
                       height: 40,
                       width: 40,
@@ -98,7 +330,9 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           shape: BoxShape.circle),
                       child: Image.asset('assets/facebook.png'),
                     ),
-                    SizedBox(width: 15,),
+                    const SizedBox(
+                      width: 15,
+                    ),
                     Container(
                       height: 40,
                       width: 40,
@@ -108,8 +342,10 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           shape: BoxShape.circle),
                       child: Image.asset('assets/insta.png'),
                     ),
-                     SizedBox(width: 15,),
-                     Container(
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Container(
                       height: 40,
                       width: 40,
                       padding: const EdgeInsets.all(5),
@@ -118,8 +354,10 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           shape: BoxShape.circle),
                       child: Image.asset('assets/x.png'),
                     ),
-                     SizedBox(width: 15,),
-                     Container(
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Container(
                       height: 40,
                       width: 40,
                       padding: const EdgeInsets.all(5),
@@ -128,8 +366,10 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           shape: BoxShape.circle),
                       child: Image.asset('assets/tiktok.png'),
                     ),
-                     SizedBox(width: 15,),
-                     Container(
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Container(
                       height: 40,
                       width: 40,
                       padding: const EdgeInsets.all(5),
@@ -138,7 +378,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
                           shape: BoxShape.circle),
                       child: Image.asset('assets/whatsapp.png'),
                     ),
-                    
                   ],
                 )
               ],
