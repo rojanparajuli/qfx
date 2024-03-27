@@ -326,7 +326,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          color: CustomColors.scaffoldDarkBack,
+                          color:Colors.white,
                           shape: BoxShape.circle),
                       child: Image.asset('assets/facebook.png'),
                     ),
@@ -338,7 +338,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          color: CustomColors.scaffoldDarkBack,
+                          color:Colors.white,
                           shape: BoxShape.circle),
                       child: Image.asset('assets/insta.png'),
                     ),
@@ -350,7 +350,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          color: CustomColors.scaffoldDarkBack,
+                          color: Colors.black,
                           shape: BoxShape.circle),
                       child: Image.asset('assets/x.png'),
                     ),
@@ -362,7 +362,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          color: CustomColors.scaffoldDarkBack,
+                          color:Colors.white,
                           shape: BoxShape.circle),
                       child: Image.asset('assets/tiktok.png'),
                     ),
@@ -374,7 +374,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          color: CustomColors.scaffoldDarkBack,
+                          // color: CustomColors.scaffoldDarkBack,
+                          color: Colors.white,
                           shape: BoxShape.circle),
                       child: Image.asset('assets/whatsapp.png'),
                     ),
