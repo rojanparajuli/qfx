@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:qfx/const/colors.dart';
+import 'package:qfx/screen/appbar/Drawer_items/policy.dart';
 import 'package:qfx/screen/appbar/Drawer_items/terms_and_conditions.dart';
 // import 'package:qfx/const/colors.dart';
 
@@ -284,7 +285,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       textStyle: const TextStyle(fontSize: 18),
                     ),
                     onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
+                      Get.to(const PrivacyPolicyPage());
                     },
                     child: const Text(
                       ' PRIVACY POLICY ',
