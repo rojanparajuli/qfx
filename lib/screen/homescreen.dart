@@ -1,32 +1,22 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:flutter/widgets.dart';
-// import 'package:flutter/widgets.dart';
 import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:qfx/const/colors.dart';
 import 'package:qfx/screen/appbar/drawer.dart';
 import 'package:qfx/screen/appbar/search_screen.dart';
 import 'package:qfx/screen/bottom_tab_bar.dart';
+// import 'package:qfx/screen/bottom_tab_bar.dart';
 import 'package:qfx/screen/splash/loyality.dart';
-import 'package:qfx/screen/splash/movies.dart';
+// import 'package:qfx/screen/splash/movies.dart';
 import 'package:qfx/screen/splash/profile.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
-
-int _Selectedindex = 0;
-final List <Widget> pages =[
-  const MovieScreen(),
-  const LoyalityScreen(),
-  const ProfileScreen(),
-];
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
@@ -57,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen>
     _tabController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +100,8 @@ class _HomeScreenState extends State<HomeScreen>
                                         onTap: (values) {
                                           print(values);
                                           setState(() {
-                                            cityController.text = values;
+                                            cityController.text =
+                                                values.toString();
                                           });
                                           Future.delayed(
                                               const Duration(milliseconds: 200),
@@ -149,10 +141,10 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          const MovieTab(),
-          Container(),
-          Container(),
+        children: const [
+          MovieTab(),
+          LoyalityScreen(),
+          ProfileScreen(),
         ],
       ),
       bottomNavigationBar: Material(
