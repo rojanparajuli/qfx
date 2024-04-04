@@ -39,9 +39,7 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 3);
-    _items = cities
-        .map((city) => MultiSelectItem<String>(city, city))
-        .toList();
+    _items = cities.map((city) => MultiSelectItem<String>(city, city)).toList();
   }
 
   @override
@@ -51,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   // Future<void> _refresh() async {
-    // Implement your refresh logic here
+  // Implement your refresh logic here
   // }
 
   @override
@@ -154,7 +152,6 @@ class _HomeScreenState extends State<HomeScreen>
           const MovieTab(),
           Container(),
           Container(),
-
         ],
       ),
       bottomNavigationBar: Material(
@@ -164,17 +161,16 @@ class _HomeScreenState extends State<HomeScreen>
           labelStyle: const TextStyle(color: Colors.white),
           tabs: const [
             Tab(
-              icon: Icon(Icons.movie),
+              icon: Icon(Icons.local_movies),
               text: 'Movies',
             ),
             Tab(
-              icon: Icon(Icons.loyalty_rounded),
+              icon: Icon(Icons.loyalty),
               text: 'My Loyalty',
             ),
             Tab(
               icon: Icon(Icons.person),
               text: 'Profile',
-              
             ),
           ],
         ),
