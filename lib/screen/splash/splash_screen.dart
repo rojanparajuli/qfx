@@ -42,19 +42,6 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
                   Image.asset('assets/logo.png', scale:3 ,)               
-            // Icon(
-            //   Icons.food_bank,
-            //   size: 80,
-            //   color: Colors.black,
-            // ),
-            // Text(
-            //   'Food APP',
-            //   style: TextStyle(
-            //     fontFamily: "NotoSerif-Italic",
-            //     fontSize: 30,
-            //     color: Colors.white, 
-            //   ),
-            // ),
           ],
         ),
       ),

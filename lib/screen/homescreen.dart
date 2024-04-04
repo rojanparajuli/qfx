@@ -10,6 +10,9 @@ import 'package:qfx/const/colors.dart';
 import 'package:qfx/screen/appbar/drawer.dart';
 import 'package:qfx/screen/appbar/search_screen.dart';
 import 'package:qfx/screen/bottom_tab_bar.dart';
+import 'package:qfx/screen/splash/loyality.dart';
+import 'package:qfx/screen/splash/movies.dart';
+import 'package:qfx/screen/splash/profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,6 +20,13 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
+
+int _Selectedindex = 0;
+final List <Widget> pages =[
+  const MovieScreen(),
+  const LoyalityScreen(),
+  const ProfileScreen(),
+];
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
@@ -47,11 +57,6 @@ class _HomeScreenState extends State<HomeScreen>
     _tabController.dispose();
     super.dispose();
   }
-
-  // Future<void> _refresh() async {
-  // Implement your refresh logic here
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,10 +141,6 @@ class _HomeScreenState extends State<HomeScreen>
                 size: 30,
               ),
               onPressed: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => const SearchScreen()));
                 Get.to(const SearchScreen());
               },
             ),
