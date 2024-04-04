@@ -6,9 +6,7 @@ import 'package:qfx/const/colors.dart';
 import 'package:qfx/screen/appbar/drawer.dart';
 import 'package:qfx/screen/appbar/search_screen.dart';
 import 'package:qfx/screen/bottom_tab_bar.dart';
-// import 'package:qfx/screen/bottom_tab_bar.dart';
-import 'package:qfx/screen/splash/loyality.dart';
-// import 'package:qfx/screen/splash/movies.dart';
+// import 'package:qfx/screen/splash/loyality.dart';
 import 'package:qfx/screen/splash/profile.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,12 +38,44 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     _tabController = TabController(vsync: this, length: 3);
     _items = cities.map((city) => MultiSelectItem<String>(city, city)).toList();
+    _tabController.addListener(_handleTabSelection);
   }
 
   @override
   void dispose() {
+    _tabController.removeListener(_handleTabSelection);
     _tabController.dispose();
     super.dispose();
+  }
+
+  void _handleTabSelection() {
+    if (_tabController.index == 1) {
+      // Show warning dialog
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          titlePadding: EdgeInsets.zero,
+          title: Container(alignment: Alignment.center, decoration:const BoxDecoration(color: CustomColors.lightblue ),child: const Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Text("My Loyality", style: TextStyle(color: Colors.white),),
+          ),
+          ),
+          content: const Text("Please Login/sign-up \n for club OFX point"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                // Switch back to the first tab
+                setState(() {
+                  _tabController.index = 0;
+                });
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   @override
@@ -73,57 +103,62 @@ class _HomeScreenState extends State<HomeScreen>
                 controller: cityController,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    hintText: 'Locations',
-                    hintStyle: const TextStyle(color: Colors.white),
-                    fillColor: const Color.fromARGB(255, 22, 22, 22),
-                    filled: true,
-                    prefixIcon: const Icon(
-                      Icons.location_on,
-                      color: Colors.white,
-                    ),
-                    suffixIcon: GestureDetector(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SizedBox(
-                                      height: 160,
-                                      child: MultiSelectChipDisplay<String>(
-                                        chipColor: Colors.grey[50],
-                                        textStyle: const TextStyle(
-                                            color: Colors.black),
-                                        items: _items,
-                                        onTap: (values) {
-                                          print(values);
-                                          setState(() {
-                                            cityController.text =
-                                                values.toString();
-                                          });
-                                          Future.delayed(
-                                              const Duration(milliseconds: 200),
-                                              () {
-                                            Navigator.pop(context);
-                                          });
-                                        },
-                                      ),
+                  hintText: 'Locations',
+                  hintStyle: const TextStyle(color: Colors.white),
+                  fillColor: const Color.fromARGB(255, 22, 22, 22),
+                  filled: true,
+                  prefixIcon: const Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                SizedBox(
+                                  height: 160,
+                                  child: MultiSelectChipDisplay<String>(
+                                    chipColor: Colors.grey[50],
+                                    textStyle: const TextStyle(
+                                      color: Colors.black,
                                     ),
-                                  ],
+                                    items: _items,
+                                    onTap: (values) {
+                                      print(values);
+                                      setState(() {
+                                        cityController.text =
+                                            values.toString();
+                                      });
+                                      Future.delayed(
+                                        const Duration(milliseconds: 200),
+                                        () {
+                                          Navigator.pop(context);
+                                        },
+                                      );
+                                    },
+                                  ),
                                 ),
-                              );
-                            },
+                              ],
+                            ),
                           );
                         },
-                        child: const Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          color: Colors.white,
-                        )),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none)),
+                      );
+                    },
+                    child: const Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
               ),
             ),
             IconButton(
@@ -143,7 +178,8 @@ class _HomeScreenState extends State<HomeScreen>
         controller: _tabController,
         children: const [
           MovieTab(),
-          LoyalityScreen(),
+           MovieTab(),
+          // LoyalityScreen(),
           ProfileScreen(),
         ],
       ),
