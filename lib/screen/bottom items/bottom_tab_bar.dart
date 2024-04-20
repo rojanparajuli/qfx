@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qfx/const/colors.dart';
+import 'package:qfx/components/colors.dart';
 
 class MovieTab extends StatefulWidget {
   const MovieTab({super.key});
