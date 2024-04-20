@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
-import 'package:qfx/const/colors.dart';
-import 'package:qfx/screen/appbar/drawer.dart';
-import 'package:qfx/screen/appbar/search_screen.dart';
-import 'package:qfx/screen/bottom_tab_bar.dart';
+import 'package:qfx/components/colors.dart';
+import 'package:qfx/screen/appbar/Drawer_items/drawer.dart';
+import 'package:qfx/screen/appbar/search/search_screen.dart';
+import 'package:qfx/screen/bottom%20items/bottom_tab_bar.dart';
 // import 'package:qfx/screen/splash/loyality.dart';
-import 'package:qfx/screen/splash/profile.dart';
+import 'package:qfx/screen/profile/profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
