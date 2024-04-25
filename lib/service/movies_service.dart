@@ -1,18 +1,26 @@
 import 'dart:convert';
 import 'package:get/get_connect/connect.dart';
+import 'package:qfx/components/api.dart';
 import 'package:qfx/model/movie_model.dart';
 
 class MovieService extends GetConnect {
   Future<List<Movie>> fetchMovies() async {
-    final String? apiUrl = baseUrl;
+    final String apiUrl = API.baseUrl;
 
     try {
-      final response = await get(apiUrl!);
+      final response = await get(apiUrl, headers: {
+        "Authorization":
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmJkMTUwYTA5NTNmOGZjNTU3N2ExMjA3ZTVlMzU0ZCIsInN1YiI6IjY2MjEwOGY3OTYwY2RlMDE0YWE2MDdmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AA94tDpFTiNAP0ztc0QZByZz_zdVUd7Bk30eimuy5Co"
+      });
+
+      print(
+          '${response.body}ffffffffffffffffffffffffffffffffffffffffffffffffffff');
+          print(response.statusCode);
 
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
         List<Movie> movies = [];
-        
+
         for (var movieData in jsonData['results']) {
           Movie movie = Movie(
             page: jsonData['page'],
@@ -42,7 +50,6 @@ class MovieService extends GetConnect {
 
           movies.add(movie);
         }
-
         return movies;
       } else {
         throw Exception('Failed to load movies');

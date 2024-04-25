@@ -3,18 +3,21 @@ import 'package:get/get.dart';
 import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:qfx/components/colors.dart';
+import 'package:qfx/controller/movie_controller.dart';
 import 'package:qfx/screen/appbar/Drawer_items/drawer.dart';
 import 'package:qfx/screen/appbar/search/search_screen.dart';
 import 'package:qfx/screen/bottom%20items/bottom_tab_bar.dart';
 // import 'package:qfx/screen/splash/loyality.dart';
 import 'package:qfx/screen/profile/profile.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+   HomeScreen({super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
-}
+final MovieController movieController =
+      Get.put(MovieController());}
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
@@ -65,7 +68,6 @@ class _HomeScreenState extends State<HomeScreen>
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
-                // Switch back to the first tab
                 setState(() {
                   _tabController.index = 0;
                 });
@@ -85,13 +87,13 @@ class _HomeScreenState extends State<HomeScreen>
         child: DrawerScreen(),
       ),
       appBar: AppBar(
-        toolbarHeight: 100,
-        leadingWidth: 100,
+        toolbarHeight: 80,
+        leadingWidth: 80,
         backgroundColor: CustomColors.scaffoldDarkBack,
         leading: Image.asset(
           'assets/logo.png',
           height: 100,
-          width: 100,
+          width: 80,
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,6 +105,7 @@ class _HomeScreenState extends State<HomeScreen>
                 controller: cityController,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(5),
                   hintText: 'Locations',
                   hintStyle: const TextStyle(color: Colors.white),
                   fillColor: const Color.fromARGB(255, 22, 22, 22),
@@ -161,15 +164,15 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
               ),
             ),
-            IconButton(
-              icon: const Icon(
+            GestureDetector(
+              onTap: () {
+                Get.to(const SearchScreen());
+              },
+              child: const Icon(
                 Icons.search,
                 color: Colors.white,
                 size: 30,
               ),
-              onPressed: () {
-                Get.to(const SearchScreen());
-              },
             ),
           ],
         ),
