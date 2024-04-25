@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void  login () async  { 
     Timer (const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomeScreen ()),
+        MaterialPageRoute(builder: (context) =>  HomeScreen ()),
       );
     });
   }

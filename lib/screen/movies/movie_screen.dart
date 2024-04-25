@@ -9,11 +9,11 @@ class MovieScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Movie Screen'),
+        title: const Text('Movie Screen'),
       ),
       body: Obx(() {
         if (movieController.isLoading.value) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (movieController.errorMessage.value.isNotEmpty) {
@@ -25,9 +25,7 @@ class MovieScreen extends StatelessWidget {
             itemCount: movieController.movies.length,
             itemBuilder: (context, index) {
               final movie = movieController.movies[index];
-              return ListTile(
-                title: Text(movie.title),
-                subtitle: Text(movie.overview),
+              return const ListTile(
               );
             },
           );
