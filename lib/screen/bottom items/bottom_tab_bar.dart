@@ -12,8 +12,7 @@ class MovieTab extends StatefulWidget {
 
 late TabController tabController;
 
-class _MovieTabState extends State<MovieTab>
-    with SingleTickerProviderStateMixin {
+class _MovieTabState extends State<MovieTab> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -32,7 +31,9 @@ class _MovieTabState extends State<MovieTab>
           TabBar(
             indicatorColor: Colors.black,
             labelStyle: const TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold),
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
             tabs: const [
               Tab(
                 text: 'Now Showing',
@@ -77,11 +78,29 @@ class _MovieTabState extends State<MovieTab>
                               Get.to(() => MovieScreen());
                             },
                             child: Container(
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 10),
+                              margin: const EdgeInsets.symmetric(horizontal: 10),
                               width: 150,
                               height: 200,
                               color: const Color.fromARGB(255, 8, 6, 6),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Movie Title ${index + 1}',
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  // Image.network(
+                                  //   '', 
+                                  //   width: 150,
+                                  //   height: 150,
+                                  //   fit: BoxFit.cover,
+                                  // ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

@@ -15,7 +15,8 @@ class MovieService extends GetConnect {
 
       print(
           '${response.body}ffffffffffffffffffffffffffffffffffffffffffffffffffff');
-          print(response.statusCode);
+      print(response.statusCode);
+      print('${response.body}yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
 
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
