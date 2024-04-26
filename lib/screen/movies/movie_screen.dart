@@ -11,7 +11,7 @@ class MovieScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Movie Screen'),
       ),
-      body: Obx(() {
+      body: movieController.obx((data) {
         if (movieController.isLoading.value) {
           return const Center(
             child: CircularProgressIndicator(),
@@ -22,9 +22,8 @@ class MovieScreen extends StatelessWidget {
           );
         } else {
           return ListView.builder(
-            itemCount: movieController.movies.length,
+            itemCount: data?.results?.length,
             itemBuilder: (context, index) {
-              final movie = movieController.movies[index];
               return const ListTile(
               );
             },

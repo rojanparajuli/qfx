@@ -2,9 +2,8 @@ import 'package:get/get.dart';
 import 'package:qfx/model/movie_model.dart';
 import 'package:qfx/service/movies_service.dart';
 
-class MovieController extends GetxController {
+class MovieController extends GetxController with StateMixin<Movie> {
   var isLoading = true.obs;
-  var movies = <Movie>[].obs;
   var errorMessage = ''.obs;
 
   final MovieService _movieService = MovieService();
@@ -18,8 +17,13 @@ class MovieController extends GetxController {
   void fetchMovies() async {
     try {
       isLoading(true);
-      final List<Movie> fetchedMovies = await _movieService.fetchMovies();
-      movies.assignAll(fetchedMovies);
+      final response = await _movieService.fetchMovies();
+      if ( response != null) {
+        change(response, status: RxStatus.success());
+
+      } else {
+        change(null, status: RxStatus.error());
+      }
     } catch (error) {
       errorMessage('Failed to fetch movies: $error');
     } finally {
