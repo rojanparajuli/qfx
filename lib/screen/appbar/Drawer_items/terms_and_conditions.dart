@@ -30,8 +30,6 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
               ),
             ),
             const SizedBox(height: 15.0),
-            // Inserted Terms and Conditions
-            // _buildSectionTitle('General Terms and Conditions'),
             _buildBulletPoint(
                 'The user accepts and agrees to be bound by the Terms and Conditions when accessing and using the Mobile Application, Website and the services provided by QFX Cinemas.'),
             _buildBulletPoint(
@@ -83,7 +81,6 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
                 'Ticket holders are required to abide by the policies laid down by QFX Cinemas Management.'),
 
             const SizedBox(height: 20.0),
-            // _buildSectionTitle('Child Policy'),
             _buildBulletPoint(
                 'Everyone (all individuals) requires their own separate ticket.'),
             _buildBulletPoint(
@@ -98,7 +95,6 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
                 'Children disturbing other theater audience during movie screening will be asked to immediately leave the theatre along with their parents or guardians. No ticket refund will be given.'),
 
             const SizedBox(height: 20.0),
-            // _buildSectionTitle('Terms and Conditions: Club QFX Loyalty Program'),
             _buildBulletPoint(
                 'Club QFX is a free loyalty program embedded in QFX App/Website. Customers can register using their mobile number and email address.'),
             _buildBulletPoint(
@@ -124,7 +120,6 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
                 'QFX is the sole owner of the name "Club QFX" as well as the Application, the Website, and all source code, object code, software, content, copyrights, trademarks, patents and other intellectual property related thereto or included therein. All suggestions, recommendations, bug-fixes, error-fixes or other communication from registered customers to upgrade loyalty program regarding the Application or the Website shall, upon submission to QFX, be owned solely and exclusively by QFX.'),
 
             const SizedBox(height: 20.0),
-            // _buildSectionTitle('Points Accumulation'),
             _buildBulletPoint(
                 'Registered customers can accumulate points by using the loyalty program through QFX App. After each purchase customers can provide their registered mobile number with the help of customer service representatives and earn point for each rupee spent.'),
             _buildBulletPoint(
@@ -133,7 +128,6 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
                 'Points do not have any cash value. They cannot be transferred or redeemed for cash. Points in a customer’s account will be annulled upon termination of registration, howsoever caused.'),
 
             const SizedBox(height: 20.0),
-            // _buildSectionTitle('QFX Loyalty points'),
             _buildBulletPoint(
                 'QFX Loyalty points are the in-App currency and can be redeemed for offers from any and all QFX Cinemas theaters.'),
             _buildBulletPoint(
@@ -147,7 +141,6 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
                 'In case of previous or continued QFX users, the email accounts that match in Goji will have their Goji Coins automatically transferred to Club QFX loyalty program.'),
 
             const SizedBox(height: 20.0),
-            // _buildSectionTitle('Redemption of QFX loyalty Points'),
             _buildBulletPoint(
                 'QFX loyalty points redemption shall be governed by QFX’s Terms and Conditions.'),
             _buildBulletPoint(
@@ -190,6 +183,4 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
   }
 }
 
-class _buildSectionTitle {
-  _buildSectionTitle(Comparable<String> s);
-}
+

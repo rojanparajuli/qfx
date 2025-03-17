@@ -5,6 +5,8 @@ import 'package:qfx/controller/movie_controller.dart';
 class MovieScreen extends StatelessWidget {
   final MovieController movieController = Get.put(MovieController());
 
+  MovieScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +26,7 @@ class MovieScreen extends StatelessWidget {
           return ListView.builder(
             itemCount: movieController.movies.length,
             itemBuilder: (context, index) {
-              final movie = movieController.movies[index];
-              return const ListTile(
-              );
+              return const ListTile();
             },
           );
         }

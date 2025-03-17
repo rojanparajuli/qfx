@@ -4,26 +4,25 @@ import 'package:qfx/components/api.dart';
 import 'package:qfx/model/movie_model.dart';
 
 class MovieService extends GetConnect {
-  Future<List<Movie>> fetchMovies() async {
-    final String apiUrl = API.baseUrl;
+  Future<List<MovieModel>> fetchMovies() async {
+    const String apiUrl = API.baseUrl;
 
     try {
       final response = await get(apiUrl, headers: {
         "Authorization":
             "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmJkMTUwYTA5NTNmOGZjNTU3N2ExMjA3ZTVlMzU0ZCIsInN1YiI6IjY2MjEwOGY3OTYwY2RlMDE0YWE2MDdmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AA94tDpFTiNAP0ztc0QZByZz_zdVUd7Bk30eimuy5Co"
       });
-
       print(
           '${response.body}ffffffffffffffffffffffffffffffffffffffffffffffffffff');
       print(response.statusCode);
-      print('${response.body}yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
-
+      print(
+          '${response.body}yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
-        List<Movie> movies = [];
+        List<MovieModel> movies = [];
 
         for (var movieData in jsonData['results']) {
-          Movie movie = Movie(
+          MovieModel movie = MovieModel(
             page: jsonData['page'],
             results: [],
             totalPages: jsonData['total_pages'],
@@ -31,7 +30,7 @@ class MovieService extends GetConnect {
           );
 
           for (var resultData in movieData['results']) {
-            movie.results.add(Result(
+            movie.results?.add(Result(
               adult: resultData['adult'],
               backdropPath: resultData['backdrop_path'],
               genreIds: List<int>.from(resultData['genre_ids']),
