@@ -33,7 +33,7 @@ class NowShowingTab extends StatelessWidget {
 
           return GestureDetector(
             onTap: () {
-              Get.to(() => MovieScreen());
+              Get.to(() => MovieDetailScreen(movie: movie,));
             },
             child: Container(
               decoration: BoxDecoration(

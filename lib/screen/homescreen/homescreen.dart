@@ -16,7 +16,8 @@ class HomeScreen extends StatefulWidget {
   HomeScreenState createState() => HomeScreenState();
 }
 
-class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final MovieController movieController = Get.put(MovieController());
   final LocationController locationController = Get.put(LocationController());
@@ -86,7 +87,8 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
               child: Obx(
                 () => TextField(
                   readOnly: true,
-                  controller: TextEditingController(text: locationController.selectedLocation.value),
+                  controller: TextEditingController(
+                      text: locationController.selectedLocation.value),
                   style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(5),
@@ -114,7 +116,7 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
               ),
             ),
             GestureDetector(
-              onTap: () => Get.to(const SearchScreen()),
+              onTap: () => Get.to( SearchScreen()),
               child: const Icon(
                 Icons.search,
                 color: Colors.white,
@@ -129,7 +131,7 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
         children: [
           MovieTab(),
           MovieTab(),
-          const ProfileScreen(),
+          const MembershipScreen(),
         ],
       ),
       bottomNavigationBar: Material(
@@ -157,12 +159,13 @@ class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMi
             SizedBox(
               height: 190,
               child: MultiSelectChipDisplay<String>(
+                chipColor: Colors.white,
                 textStyle: const TextStyle(color: Colors.black),
                 items: locationController.locations,
                 onTap: (selectedCity) {
                   locationController.updateLocation(selectedCity);
-                  // ignore: use_build_context_synchronously
-                  Future.delayed(const Duration(milliseconds: 200), () => Navigator.pop(context));
+                  Future.delayed(const Duration(milliseconds: 200),
+                      () => Navigator.pop(context));
                 },
               ),
             ),
