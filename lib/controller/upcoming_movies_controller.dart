@@ -7,6 +7,8 @@ class UpcomingMoviesController extends GetxController {
   var upcomingMovies = UpCommingModel().obs;
   var isLoading = false.obs;
   var hasError = false.obs;
+  var movies = <Result>[].obs;
+
   @override
   void onInit() {
     super.onInit();

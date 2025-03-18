@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:qfx/controller/search_controller.dart';
+import 'package:qfx/screen/movies/search_movie_detail.dart';
 
-class SearchScreen extends StatefulWidget {
-  const SearchScreen({super.key});
+class SearchScreen extends StatelessWidget {
+  SearchScreen({super.key});
 
-  @override
-  State<SearchScreen> createState() => _SearchScreenState();
-}
-
-class _SearchScreenState extends State<SearchScreen> {
-  final TextEditingController _searchController = TextEditingController();
+  final SearchScreenController searchController = Get.put(SearchScreenController());
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +18,7 @@ class _SearchScreenState extends State<SearchScreen> {
         automaticallyImplyLeading: false,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Navigator.pop(context),
         ),
         title: Container(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -34,41 +30,93 @@ class _SearchScreenState extends State<SearchScreen> {
             children: [
               Expanded(
                 child: TextField(
-                  controller: _searchController,
+                  controller: searchController.searchController,
                   decoration: const InputDecoration(
                     hintText: 'Movie, Genres, & Languages',
                     border: InputBorder.none,
                   ),
+                  onSubmitted: (_) => searchController.searchMovies(),
                 ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.search, color: Colors.black),
+                onPressed: searchController.searchMovies,
               ),
             ],
           ),
         ),
         actions: [
           TextButton(
-            onPressed: () {
-              setState(() {
-                _searchController.clear();
-              });
-            },
-            child: const Text(
-              'CLEAR',
-              style: TextStyle(color: Colors.blue),
-            ),
+            onPressed: searchController.clearSearch,
+            child: const Text('CLEAR', style: TextStyle(color: Colors.blue)),
           ),
         ],
       ),
-      body: const Column(
-        children: <Widget>[
-          
-        ],
-      ),
-    );
-  }
+      body: Obx(() {
+        if (searchController.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        }
 
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
+        if (searchController.errorMessage.isNotEmpty) {
+          return Center(child: Text(searchController.errorMessage.value));
+        }
+
+        if (searchController.searchResults.isEmpty) {
+          return const Center(child: Text("Search for movies..."));
+        }
+
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
+              childAspectRatio: 0.6,
+            ),
+            itemCount: searchController.searchResults.length,
+            itemBuilder: (context, index) {
+              final movie = searchController.searchResults[index];
+              return GestureDetector(
+                onTap: () => Get.to(() => SearchMovieDetailScreen(movie: movie)),
+                child: Card(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  elevation: 5,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
+                          child: movie.posterPath != null
+                              ? Image.network(
+                                  'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                )
+                              : Container(
+                                  color: Colors.grey.shade300,
+                                  child: const Icon(Icons.movie, size: 50),
+                                ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          movie.title ?? "Unknown",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        );
+      }),
+    );
   }
 }
