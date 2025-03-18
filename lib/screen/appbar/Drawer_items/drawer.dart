@@ -62,9 +62,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 18),
                     ),
-                    onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'SIGN IN /SIGN UP',
                       style: TextStyle(
@@ -80,9 +78,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 18),
                     ),
-                    onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'CUSTOMER SERVICE',
                       style: TextStyle(
@@ -92,41 +88,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     ),
                   ),
                 ),
-                // const Divider(),
-                // ListTile(
-                //   leading: TextButton(
-                //     style: TextButton.styleFrom(
-                //       textStyle: const TextStyle(fontSize: 18),
-                //     ),
-                //     onPressed: () {
-                //       // Get.to(const TermsAndConditionsScreen());
-                //     },
-                //     child: const Text(
-                //       'CUSTOMER SERVICE',
-                //       style: TextStyle(
-                //           color: Colors.black,
-                //           fontWeight: FontWeight.bold,
-                //           fontSize: 18),
-                //     ),
-                //   ),
-                // ),
-                // ListTile(
-                //   leading: TextButton(
-                //     style: TextButton.styleFrom(
-                //       textStyle: const TextStyle(fontSize: 18),
-                //     ),
-                //     onPressed: () {
-                //       // Get.to(const TermsAndConditionsScreen());
-                //     },
-                //     child: const Text(
-                //       'CUSTOMER SERVICE',
-                //       style: TextStyle(
-                //           color: Colors.black,
-                //           fontWeight: FontWeight.bold,
-                //           fontSize: 18),
-                //     ),
-                //   ),
-                // ),
+
                 const Divider(),
 
                 ListTile(
@@ -134,9 +96,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 18),
                     ),
-                    onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'CLUB QFX',
                       style: TextStyle(
@@ -153,9 +113,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 18),
                     ),
-                    onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'OFFERS & PROMOTIONS',
                       style: TextStyle(
@@ -172,9 +130,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 18),
                     ),
-                    onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'ADVERTISE WITH US',
                       style: TextStyle(
@@ -191,9 +147,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 18),
                     ),
-                    onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'BECOME QFX FRANCHISEE',
                       style: TextStyle(
@@ -210,9 +164,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 18),
                     ),
-                    onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'CAREERS',
                       style: TextStyle(
@@ -229,9 +181,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 18),
                     ),
-                    onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'ABOUT US',
                       style: TextStyle(
@@ -248,9 +198,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                     style: TextButton.styleFrom(
                       textStyle: const TextStyle(fontSize: 18),
                     ),
-                    onPressed: () {
-                      // Get.to(const TermsAndConditionsScreen());
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'FAQs',
                       style: TextStyle(
@@ -327,8 +275,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          color:Colors.white,
-                          shape: BoxShape.circle),
+                          color: Colors.white, shape: BoxShape.circle),
                       child: Image.asset('assets/facebook.png'),
                     ),
                     const SizedBox(
@@ -339,8 +286,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          color:Colors.white,
-                          shape: BoxShape.circle),
+                          color: Colors.white, shape: BoxShape.circle),
                       child: Image.asset('assets/insta.png'),
                     ),
                     const SizedBox(
@@ -351,8 +297,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          color: Colors.black,
-                          shape: BoxShape.circle),
+                          color: Colors.black, shape: BoxShape.circle),
                       child: Image.asset('assets/x.png'),
                     ),
                     const SizedBox(
@@ -363,8 +308,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          color:Colors.white,
-                          shape: BoxShape.circle),
+                          color: Colors.white, shape: BoxShape.circle),
                       child: Image.asset('assets/tiktok.png'),
                     ),
                     const SizedBox(
@@ -375,13 +319,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       width: 40,
                       padding: const EdgeInsets.all(5),
                       decoration: const BoxDecoration(
-                          // color: CustomColors.scaffoldDarkBack,
                           color: Colors.white,
                           shape: BoxShape.circle),
                       child: Image.asset('assets/whatsapp.png'),
                     ),
                   ],
-                )
+                ),
+                const SizedBox(height: 20,)
               ],
             )
           ],
