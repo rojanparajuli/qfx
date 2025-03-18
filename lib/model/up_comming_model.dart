@@ -1,24 +1,27 @@
 import 'dart:convert';
 
-MovieModel movieModelFromJson(String str) =>
-    MovieModel.fromJson(json.decode(str));
+UpCommingModel upCommingModelFromJson(String str) =>
+    UpCommingModel.fromJson(json.decode(str));
 
-String movieModelToJson(MovieModel data) => json.encode(data.toJson());
+String upCommingModelToJson(UpCommingModel data) => json.encode(data.toJson());
 
-class MovieModel {
+class UpCommingModel {
+  Dates? dates;
   int? page;
   List<Result>? results;
   int? totalPages;
   int? totalResults;
 
-  MovieModel({
+  UpCommingModel({
+    this.dates,
     this.page,
     this.results,
     this.totalPages,
     this.totalResults,
   });
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
+  factory UpCommingModel.fromJson(Map<String, dynamic> json) => UpCommingModel(
+        dates: Dates.fromJson(json["dates"]),
         page: json["page"],
         results:
             List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
@@ -27,10 +30,33 @@ class MovieModel {
       );
 
   Map<String, dynamic> toJson() => {
+        "dates": dates?.toJson(),
         "page": page,
         "results": List<dynamic>.from(results!.map((x) => x.toJson())),
         "total_pages": totalPages,
         "total_results": totalResults,
+      };
+}
+
+class Dates {
+  DateTime? maximum;
+  DateTime? minimum;
+
+  Dates({
+    this.maximum,
+    this.minimum,
+  });
+
+  factory Dates.fromJson(Map<String, dynamic> json) => Dates(
+        maximum: DateTime.parse(json["maximum"]),
+        minimum: DateTime.parse(json["minimum"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "maximum":
+            "${maximum?.year.toString().padLeft(4, '0')}-${maximum?.month.toString().padLeft(2, '0')}-${maximum?.day.toString().padLeft(2, '0')}",
+        "minimum":
+            "${minimum?.year.toString().padLeft(4, '0')}-${minimum?.month.toString().padLeft(2, '0')}-${minimum?.day.toString().padLeft(2, '0')}",
       };
 }
 
@@ -68,24 +94,20 @@ class Result {
   });
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
-        adult: json["adult"] ?? false,
-        backdropPath: json["backdrop_path"] ?? "",
-        genreIds: json["genre_ids"] != null
-            ? List<int>.from(json["genre_ids"].map((x) => x))
-            : [],
-        id: json["id"] ?? 0,
-        originalLanguage: json["original_language"] ?? "",
-        originalTitle: json["original_title"] ?? "",
-        overview: json["overview"] ?? "",
-        popularity: (json["popularity"] ?? 0.0).toDouble(),
-        posterPath: json["poster_path"] ?? "",
-        releaseDate: json["release_date"] != null
-            ? DateTime.tryParse(json["release_date"]) ?? DateTime(2000)
-            : DateTime(2000),
-        title: json["title"] ?? "",
-        video: json["video"] ?? false,
-        voteAverage: (json["vote_average"] ?? 0.0).toDouble(),
-        voteCount: json["vote_count"] ?? 0,
+        adult: json["adult"],
+        backdropPath: json["backdrop_path"],
+        genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
+        id: json["id"],
+        originalLanguage: json["original_language"],
+        originalTitle: json["original_title"],
+        overview: json["overview"],
+        popularity: json["popularity"].toDouble(),
+        posterPath: json["poster_path"],
+        releaseDate: DateTime.parse(json["release_date"]),
+        title: json["title"],
+        video: json["video"],
+        voteAverage: json["vote_average"].toDouble(),
+        voteCount: json["vote_count"],
       );
 
   Map<String, dynamic> toJson() => {

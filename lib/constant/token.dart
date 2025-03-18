@@ -1,0 +1,4 @@
+class RequestToken {
+  static const bearerToken =
+      "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYmJkMTUwYTA5NTNmOGZjNTU3N2ExMjA3ZTVlMzU0ZCIsInN1YiI6IjY2MjEwOGY3OTYwY2RlMDE0YWE2MDdmZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AA94tDpFTiNAP0ztc0QZByZz_zdVUd7Bk30eimuy5Co";
+}
