@@ -1,16 +1,29 @@
-# qfx
+# QFX App - Flutter
 
-A new Flutter project.
+QFX is a Flutter-based app that uses REST API and GetX state management.
+
+## Screenshots
+
+![Screenshot 1](assets/Screenshot_2025-03-18-17-20-48-303_com.example.qfx.jpg)
+![Screenshot 2](assets/Screenshot_2025-03-18-17-20-53-379_com.example.qfx.jpg)
+![Screenshot 3](assets/Screenshot_2025-03-18-17-20-58-657_com.example.qfx.jpg)
+![Screenshot 4](assets/Screenshot_2025-03-18-17-21-32-925_com.example.qfx.jpg)
+![Screenshot 5](assets/Screenshot_2025-03-18-17-21-44-132_com.example.qfx.jpg)
+
+## Features
+
+- Now Screening Movies  
+- Upcoming Movies  
+- Search Movies  
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To run this project locally, follow these steps:
 
-A few resources to get you started if this is your first Flutter project:
+### Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Clone this repository:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+   ```sh
+   git clone https://github.com/rojanparajuli/qfx.git
+   cd qfx

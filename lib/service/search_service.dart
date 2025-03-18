@@ -24,10 +24,10 @@ class SearchService extends GetConnect {
         "Content-Type": "application/json",
       },
     );
-      print("Error: ${response.statusCode} - ${response.bodyString}");
+      // print("Error: ${response.statusCode} - ${response.bodyString}");
 
     if (response.status.hasError) {
-      print("Error: ${response.statusCode} - ${response.bodyString}");
+      // print("Error: ${response.statusCode} - ${response.bodyString}");
       return null;
     }
 
